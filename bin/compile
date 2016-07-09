@@ -56,11 +56,10 @@ PATH=$PATH:$build_dir/vendor/node/bin
 # Run subsequent node/npm commands from the build path
 cd $build_dir
 
-echo "-----> VJM_TEST $VJM_TEST"
-
-npm install bower
-echo "-----> Doing bower install thing"
-$build_dir/node_modules/.bin/bower install
+#echo "-----> VJM_TEST $VJM_TEST"
+#npm install bower
+#echo "-----> Doing bower install thing"
+#$build_dir/node_modules/.bin/bower install
 
 
 is_gruntfile_present= [ -f $build_dir/grunt.js ] || [ -f $build_dir/Gruntfile.js ] || [ -f $build_dir/Gruntfile.coffee ];
@@ -192,7 +191,7 @@ echo "export PATH=\"\$HOME/.gem/ruby/1.9.1/bin:\$PATH\"" > $build_dir/.profile.d
       status "Exporting config vars to environment"
       export_env_dir $env_dir
     fi
-  
+
     npm install grunt-cli
     status "Running grunt heroku:$NODE_ENV task"
     ls $build_dir/node_modules 2>&1 | indent
